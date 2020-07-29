@@ -1,8 +1,3 @@
-// UNSPLASH API
-const count = 30
-const apiKey = 'YGjNcOjhxiHhyOi6cD8Tlv1aanAmSq3KdcJ_wAbEVOs'
-const unsplashAPI = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
-
 const imageContainer = document.querySelector(".image-container")
 const loader = document.querySelector("#loader")
 
@@ -10,6 +5,12 @@ let photosArray = []
 let ready = false
 let imagesLoaded = 0
 let totalImages = 0
+let count = 5
+
+// UNSPLASH API
+const apiKey = 'YGjNcOjhxiHhyOi6cD8Tlv1aanAmSq3KdcJ_wAbEVOs'
+let unsplashAPI = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
+
 
 function setAttributes(element, attribute){
     for(const key in attribute){
@@ -23,6 +24,8 @@ function imageLoaded(){
         ready = true
         loader.hidden = true
         console.log("ready=", ready)
+        count = 30
+        unsplashAPI = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
     }
 }
 
